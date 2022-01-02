@@ -1,0 +1,42 @@
+const mongoose = require('mongoose');
+
+
+const terrainSchema = mongoose.Schema({
+    name: {
+        type: String
+    },
+    user: {
+        type: mongoose.Types.ObjectId,
+        ref: 'user'
+    },
+    image: {
+        type: String
+    },
+    address: {
+        type: String
+    },
+    frais: {
+        type: Number,
+        default: 0
+    },
+    color: {
+        type: String
+    },
+    duration: {
+        type: Number,
+        default: 60
+    },
+    geoloacation: {
+        lang: {
+            type: Number
+        },
+        lat: {
+            type: Number
+        }
+    }
+}, {
+    timestamps: true
+});
+
+const Terrain = mongoose.model('terrain', terrainSchema);
+module.exports = Terrain;
